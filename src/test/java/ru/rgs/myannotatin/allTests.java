@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Test
-@Tag("fullTests")
-public @interface fullTests {
+@Tag("allTests")
+public @interface allTests {
 }
 
