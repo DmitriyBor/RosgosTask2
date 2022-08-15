@@ -22,7 +22,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- Dependencies version -->
-        <junit.version>5.4.0</junit.version>
+        <junit.version>5.8.2</junit.version>
         <selenium-java.version>3.141.59</selenium-java.version>
     </properties>
 
@@ -34,11 +34,10 @@
             <version>${selenium-java.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.version}</version>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.8.2</version>
             <scope>test</scope>
         </dependency>
 
@@ -63,9 +62,10 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
+                    <groups>allTests</groups>
                     <includes>
                         <!--                        <include>ru.rgs.tests.Rosgosstrah</include>-->
-                        <include>**\*Rosgos*</include>
+                        <include>**\*RgsStrahovanie</include>
                     </includes>
                 </configuration>
             </plugin>
