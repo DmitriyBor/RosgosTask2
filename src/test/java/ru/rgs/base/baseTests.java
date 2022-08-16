@@ -2,7 +2,9 @@ package ru.rgs.base;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -12,9 +14,15 @@ import java.util.concurrent.TimeUnit;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class baseTests {
-    public WebDriver driver;
-    public WebDriverWait wait;
-    public Actions actions;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+    protected Actions actions;
+    protected JavascriptExecutor jsExecutor;
+
+    @BeforeEach
+    public void beforeEach() {
+        driver.get("https://rgs.ru/");
+    }
 
     @BeforeAll
     public void before() {
@@ -30,7 +38,7 @@ public class baseTests {
 
         actions = new Actions(driver);
 
-        driver.get("https://rgs.ru/");
+        jsExecutor = (JavascriptExecutor) driver;
     }
 
     @AfterAll
